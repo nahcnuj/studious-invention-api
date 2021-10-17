@@ -1,0 +1,35 @@
+openapi: 3.0.0
+
+info:
+  title: 題シェア（仮）
+  description: 題シェア（仮） API Server
+  version: 0.0.1
+
+servers:
+  - url: http://localhost:8000/v1/
+    description: A local API server for development
+
+components:
+  schemas:
+    theme:
+      type: object
+      properties:
+        text:
+          type: string
+
+paths:
+  /themes:
+    get:
+      summary: Returns themes
+      responses:
+        '200':
+          description: Returns themes
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  themes:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/theme'
